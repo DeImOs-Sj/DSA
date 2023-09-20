@@ -1,0 +1,2 @@
+Mostly patterns consist of nested loops !!
+The patterns consist of inner loops and outer loops.Inner loops is for (lines/rows) and the Outer loop is for the (Columns).
