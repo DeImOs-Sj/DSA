@@ -1,2 +1,6 @@
 Mostly patterns consist of nested loops !!
-The patterns consist of inner loops and outer loops.Inner loops is for (lines/rows) and the Outer loop is for the (Columns).
+The patterns consist of inner loops and outer loops.Inner loops is for (Columns) and the Outer loop is for the (rows).
+Main points to remember:
+1)For the outer loops,count the no.of lines,no. of rows
+2)for the inner loop , focus on the columns & connect them somehow to the rows
+3)Print them `*` inside the inner for loop
