@@ -1,0 +1,14 @@
+Void function is the one which does not return anything here is its code sample 
+'#include<bits/stdc++.h>
+using namespace std ;
+void print()
+{
+    cout<<"SHLOK";
+}
+
+int main()
+{
+print();
+}'
+
+2nd type of function is return function
