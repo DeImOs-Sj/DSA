@@ -1,0 +1,3 @@
+the modulo operator gives the remainder 
+eg 7789 
+soln:-7789%10=9  (9 is the number as the 7789 is divided by 7780 and then the remainder is 9)

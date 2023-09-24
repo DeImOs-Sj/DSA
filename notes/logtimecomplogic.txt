@@ -1,0 +1,22 @@
+the 0(log10) or the log appears when there is division by some no. in the code that is repeating for 
+eg:- here is the sample code 
+`#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n;
+    // cout<<"Enter the digit";
+    cin>>n;
+    int last;
+    int count=0 ;
+    while(n>0)
+    {
+    last= n % 10;
+    count=count+1;
+
+    n=n/10;
+    }
+    cout<<count;
+    return 0;
+}`  
+In this code the no. n is divided by 10 (n/10) therefore the time complexity is O(log10(N))
