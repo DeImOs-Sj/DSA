@@ -7,47 +7,40 @@ function TreeStructure(val){
 // right view of the tree
 
 
-function treeRightView(array){
+function treeLeftView(array){
 
     let root = new TreeStructure(array[0])
     let queue = [root]
     let i = 1
     let result = []
-    let rightView = []
 
     while(queue.length){
         let size = queue.length
-        let level = []
-        
 
-        for(let j=0;j<size;j++)
-        {
+        for(let j=0;j<size;j++){
 
-            
             let current = queue.shift()
 
-            level.push(current.val)
-            
+            // ✅ LEFT VIEW
+            if (j === size-1) {
+                result.push(current.val)
+            }
 
-            if(i<array.length){
+            if(i < array.length){
                 current.left = new TreeStructure(array[i])
                 queue.push(current.left)
+                i++
             }
-            i++
-            if(i<array.length){
+
+            if(i < array.length){
                 current.right = new TreeStructure(array[i])
                 queue.push(current.right)
+                i++
             }
-            i++
         }
-        result.push(level.shift())
-
     }
+
     return result
-    
-
-
-
 }
 
 
@@ -58,4 +51,4 @@ function treeRightView(array){
 let a = [1,2,3,4,5,6,7,8]
 
 
-console.log(treeRightView(a))
+console.log(treeLeftView(a))
