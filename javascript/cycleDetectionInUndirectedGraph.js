@@ -1,46 +1,34 @@
-// given
-const adjList = [
-    [1],
-    [0, 2],
-    [1, 3],
-    [2]
-];
-// solving using bfs
-function bfs(i, adjList, visitedMap) {
-  // need to traverse the adjacency list using queue
+let adjList = [[1, 2], [0, 2], [0, 1, 3], [2]];
+// const adjList = [[1], [0, 2], [1, 3], [2]];
+let adjLen = adjList.length;
+let visitedArray = new Array(adjLen).fill(false);
+
+function bfs(i) {
   let queue = [];
-  queue.push({ start: i, initialValue: -1 });
-  visitedMap[i] = true;
+  queue.push({ node: i, parent: -1 });
+  visitedArray[i] = true;
 
   while (queue.length != 0) {
-    let elems = queue[0];
-    let startElem = elems.start;
-    let parent = elems.initialValue;
-
+    let temp = queue[0];
+    let tempNode = temp.node;
+    let tempParent = temp.parent;
     queue.shift();
-    for (let neighbor of adjList[startElem]) {
-      if (!visitedMap[neighbor]) {
-        visitedMap[neighbor] = true;
-        queue.push({
-          start: neighbor,
-          initialValue: startElem,
-        });
-      } else if (neighbor != parent) {
+    for (let neighbor of adjList[tempNode]) {
+      if (!visitedArray[neighbor]) {
+        visitedArray[neighbor] = true;
+        queue.push({ node: neighbor, parent: tempNode });
+      } else if (neighbor != tempParent) {
         return true;
       }
     }
   }
-
   return false;
 }
 
 function cycleDetection() {
-  let vertices = adjList.length;
-  let visited = Array(vertices).fill(false);
-
-  for (let i = 0; i < vertices; i++) {
-    if (!visited[i]) {
-      if (bfs(i, adjList, visited)) {
+  for (let i = 0; i < adjLen; i++) {
+    if (!visitedArray[i]) {
+      if (bfs(i)) {
         return true;
       }
     }
@@ -48,4 +36,4 @@ function cycleDetection() {
   return false;
 }
 
-console.log(cycleDetection()); 
+console.log(cycleDetection());
